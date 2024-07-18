@@ -112,6 +112,12 @@ document.onkeydown = function(e)
         case 'x':
             keyb.Abutton = true;
             break;
+        case 'a':
+            field.scx--;
+            break;
+        case 's':
+            field.scx++;
+            break;
     }
 }
 
