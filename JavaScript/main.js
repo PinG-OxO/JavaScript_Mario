@@ -1,7 +1,3 @@
-const SCREEN_SIZE_W = 256;      // スクリーンの幅
-const SCREEN_SIZE_H = 224;      // スクリーンの高さ
-const GAME_FPS = 1000/60;       // FPS
-
 // 仮想キャンバスの作成
 let vcan = document.createElement("canvas");
 let vcon = vcan.getContext("2d");
@@ -28,11 +24,15 @@ let chImg = new Image(); chImg.src = "Image/sprite.png";    // 画像を取得
 
 let keyb = {}; // キーボードの状態を保存する連想配列
 
+let field = new Field();    // フィールドのインスタンスを生成
+
 let ojisan = new Ojisan(100, 150); // おじさんのインスタンスを生成
 
 // 更新処理
 function update()
 {
+    // マップを更新
+    field.update();
     // おじさんの更新
     ojisan.update();
 }
@@ -50,6 +50,9 @@ function draw()
     // 仮想画面のクリア
     vcon.fillStyle = "#66AAFF";
     vcon.fillRect(0, 0, SCREEN_SIZE_W, SCREEN_SIZE_H); 
+
+    // マップを描画
+    field.draw();
 
     // おじさんを描画
     ojisan.draw();

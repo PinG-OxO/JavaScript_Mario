@@ -40,10 +40,10 @@ class Ojisan {
         this.y += this.vy;
 
         // 床に着地させる
-        if(this.y > 150<<4) {
+        if(this.y > 160<<4) {
             if(this.animeNum === ANIME_JUMP)this.animeNum = ANIME_WALK;
             this.jump = 0;
-            this.y = 150<<4;
+            this.y = 160<<4;
             this.vy = 0;
         }
     }
